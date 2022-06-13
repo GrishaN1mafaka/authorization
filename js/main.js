@@ -47,17 +47,30 @@ myForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   try {
+    const formData = new FormData(event.target);
+    const payload = Object.fromEntries(formData.entries());
+
+    const { email, password } = payload;
+
+    const body = { email, password };
+
+    console.log(body);
     const response = await fetch(event.target.action, {
       method: "POST",
-      body: new URLSearchParams(new FormData(event.target)),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
+    console.log(event.target.action);
 
     console.log("headers:", response.headers);
 
-    const body = await response.json();
+    const responceBody = await response.json();
 
-    console.log("body:", body);
+    console.log("body:", responceBody);
   } catch (error) {
-    console.error("Error has occured on form submit", error);
+    console.error("Error has occurred on form submit", error);
   }
 });
