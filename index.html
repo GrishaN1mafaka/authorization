@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>authorization</title>
+  </head>
+  <body>
+    <div class="container toggle">
+      <div class="buttons">
+        <button class="button active" id="login__form">login</button>
+        <button class="button" id="registr__form">registration</button>
+        <button id="test">test</button>
+      </div>
+    </div>
+    <div class="container">
+      <form class="inputs sign" id="inputs__sign">
+        <input
+          id="input__login"
+          name="login"
+          type="text"
+          class="login"
+          placeholder="Login"
+          autofocus
+        />
+        <input
+          name="password"
+          type="password"
+          class="password"
+          placeholder="Password"
+        />
+        <input type="submit" class="submit" value="login" />
+      </form>
+      <form
+        class="inputs registr"
+        id="inputs__registr"
+        method="post"
+        action="http://127.0.0.1:8000/auth/register"
+      >
+        <input
+          name="email"
+          type="email"
+          class="mail"
+          placeholder="Email"
+          maxlength="40"
+          required
+        />
+        <input
+          name="login"
+          type="text"
+          class="login"
+          placeholder="Login"
+          maxlength="14"
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          class="password"
+          placeholder="Password"
+          maxlength="21"
+          required
+        />
+        <input type="submit" class="submit" value="registration" />
+      </form>
+    </div>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
